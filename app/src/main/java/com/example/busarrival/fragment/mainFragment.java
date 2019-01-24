@@ -3,6 +3,7 @@ package com.example.busarrival.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -46,7 +47,10 @@ public class mainFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_main, container, false);
-        myRecycler = view.findViewById(R.id.recyclerVIewMain);
+
+        myRecycler = (RecyclerView)view.findViewById(R.id.recyclerVIewMain);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        myRecycler.setLayoutManager(layoutManager);
 
         //==================================== "필요없는부분 테스트완료"================================================
         /*
