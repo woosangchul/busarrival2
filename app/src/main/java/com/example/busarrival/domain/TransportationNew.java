@@ -77,7 +77,7 @@ public class TransportationNew extends TimeCalculator{
         return tempFlagSub;
     }
 
-    public String[] getSchedule() {
+    public ScheduleVO getSchedule() {
         String str[] = new String[4];
         int tempBusFlag=0;
         int tempSubFlag=0;
@@ -114,7 +114,8 @@ public class TransportationNew extends TimeCalculator{
             str[2] = "운행종료";
             str[3] = "운행종료";
         }
-        return str;
+        //return str;
+        return scheduleText;
     }
 
     public String[] getNextButton(String[] text){

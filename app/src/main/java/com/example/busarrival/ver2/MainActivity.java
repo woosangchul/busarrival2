@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MainActivity extends AppCompatActivity implements mainFragment.OnMainFragmentSelectedListener {
+public class MainActivity extends AppCompatActivity {
     private SecondFragment mSecondFragment;
 
     private RecyclerView recyclerView;
@@ -37,10 +37,11 @@ public class MainActivity extends AppCompatActivity implements mainFragment.OnMa
         setContentView(R.layout.activity_main);
         mainFragment fragment = new mainFragment();
         getSupportFragmentManager().beginTransaction().add(R.id.fragment_container,fragment).commit();
-        fragment.setOnMainFragmentSeletedListener(this);
+        fragment.started(dataList);
+//        fragment.setOnMainFragmentSeletedListener(this);
 
     }
-
+/*
     @Override
     public void onMainFragmentSelected() {
         Log.d("1234", "리스너 실행중");
@@ -50,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements mainFragment.OnMa
         transaction.addToBackStack(null);
         transaction.commit();
     }
-
+*/
     public class CountTask extends AsyncTask<Void, Void, Void>{
         @Override
         protected Void doInBackground(Void... voids) {
