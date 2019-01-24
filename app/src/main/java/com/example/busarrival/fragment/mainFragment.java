@@ -50,7 +50,7 @@ public class mainFragment extends Fragment {
 
         myRecycler = (RecyclerView)view.findViewById(R.id.recyclerVIewMain);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
-        myRecycler.setLayoutManager(layoutManager);
+        myRecycler.setLayoutManager(layoutManager); //수정
 
         //==================================== "필요없는부분 테스트완료"================================================
         /*
