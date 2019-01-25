@@ -72,7 +72,7 @@
                     android:id="@+id/textviewBackground"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:background="@drawable/mornigsalad"
+                    android:background="@drawable/healthwater"
                     android:gravity="center_vertical|center_horizontal"
                     android:textSize="20dp"
                     app:layout_constraintEnd_toEndOf="@id/textViewArrive"

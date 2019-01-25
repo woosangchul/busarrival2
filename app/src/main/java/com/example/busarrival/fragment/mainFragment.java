@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 
 import com.example.busarrival.adaptor.MyRecyclerAdapter;
 import com.example.busarrival.domain.TransportationNew;
+import com.example.busarrival.ver2.MainActivity;
 import com.example.busarrival.ver2.R;
 
 import java.net.InterfaceAddress;
@@ -51,6 +52,8 @@ public class mainFragment extends Fragment {
         myRecycler = (RecyclerView)view.findViewById(R.id.recyclerVIewMain);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         myRecycler.setLayoutManager(layoutManager); //수정
+        adapter = new MyRecyclerAdapter(((MainActivity)getActivity()).getDataList());
+        myRecycler.setAdapter(adapter);
 
         //==================================== "필요없는부분 테스트완료"================================================
         /*
@@ -84,10 +87,7 @@ public class mainFragment extends Fragment {
         return view;
     }
 
-    public void started(List<TransportationNew> dataList){
-        adapter = new MyRecyclerAdapter(dataList);
-        myRecycler.setAdapter(adapter);
-    }
+
 
 
 

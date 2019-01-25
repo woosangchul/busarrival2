@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
+import com.example.busarrival.adaptor.MyRecyclerAdapter;
 import com.example.busarrival.domain.TransportationNew;
 import com.example.busarrival.fragment.SecondFragment;
 import com.example.busarrival.fragment.mainFragment;
@@ -17,7 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements MyRecyclerAdapter.MyRecyclerViewClickListener {
     private SecondFragment mSecondFragment;
 
     private RecyclerView recyclerView;
@@ -35,23 +36,31 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        initTransportation();
         mainFragment fragment = new mainFragment();
+
         getSupportFragmentManager().beginTransaction().add(R.id.fragment_container,fragment).commit();
-        fragment.started(dataList);
+
 //        fragment.setOnMainFragmentSeletedListener(this);
 
     }
-/*
+
     @Override
-    public void onMainFragmentSelected() {
-        Log.d("1234", "리스너 실행중");
-        mSecondFragment = new SecondFragment();
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.fragment_container, mSecondFragment);
-        transaction.addToBackStack(null);
-        transaction.commit();
+    public void onItemClicked(int position) {
+
     }
-*/
+
+    /*
+        @Override
+        public void onMainFragmentSelected() {
+            Log.d("1234", "리스너 실행중");
+            mSecondFragment = new SecondFragment();
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.fragment_container, mSecondFragment);
+            transaction.addToBackStack(null);
+            transaction.commit();
+        }
+    */
     public class CountTask extends AsyncTask<Void, Void, Void>{
         @Override
         protected Void doInBackground(Void... voids) {
@@ -98,8 +107,6 @@ public class MainActivity extends AppCompatActivity {
         Integer[] busIndexJiTo2cam = {8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22};
         Integer[] busIndexJiTo2Cam = {0, 4, 13, 18, 20, 22, 24, 26, 30, 34, 40, 43, 45, 47, 49};
 
-
-
         String[] subwayTimeTableJiToIn = {"05:24","05:55","06:14","06:33","06:48","06:57(급)","07:09","07:15","07:21","07:28","07:36(급)","07:43","07:54","07:59","08:07(급)","08:12","08:22","08:28","08:38",
                 "08:53","09:13","09:24","09:43","10:01","10:24","10:44","11:14","11:33(급)","11:43","12:12","12:33(급)","12:43","13:14","13:48","13:52","14:14","14:43","15:08","15:12(급)","15:43","16:13","16:38(급)",
                 "16:47","17:11","17:29","17:51","18:14","18:29","18:44","18:59","19:16","19:39","19:46","20:00","20:10","20:29","20:49","20:58","21:24","21:37","21:53","22:13","22:47","22:59","23:17","23:48"};
@@ -123,6 +130,25 @@ public class MainActivity extends AppCompatActivity {
 
         for (int i = 0; i < subwayTimeTableJiToIn.length; i++)
             subjiToInSchedule.add(subwayTimeTableJiToIn[i]);
+
+        String s[] = {"2캠", "지행"};
+        String s1[] = {"지행", "2캠"};
+        dataList = new ArrayList<>();
+        dataList.add( new TransportationNew(bus2camToJiMap, bus2camToJiSchedule, subjiToInMap, subjiToInSchedule, s));
+        dataList.add(new TransportationNew(busJiTo2camMap, busJito2camSchedule, subjiToInMap, subjiToInSchedule, s1));
+        dataList.add(new TransportationNew(busJiTo2camMap, busJito2camSchedule, subjiToInMap, subjiToInSchedule, s1));
+        dataList.add(new TransportationNew(busJiTo2camMap, busJito2camSchedule, subjiToInMap, subjiToInSchedule, s1));
+        dataList.add(new TransportationNew(busJiTo2camMap, busJito2camSchedule, subjiToInMap, subjiToInSchedule, s1));
+        dataList.add(new TransportationNew(busJiTo2camMap, busJito2camSchedule, subjiToInMap, subjiToInSchedule, s1));
+        dataList.add(new TransportationNew(busJiTo2camMap, busJito2camSchedule, subjiToInMap, subjiToInSchedule, s1));
+        dataList.add(new TransportationNew(busJiTo2camMap, busJito2camSchedule, subjiToInMap, subjiToInSchedule, s1));
+        dataList.add(new TransportationNew(busJiTo2camMap, busJito2camSchedule, subjiToInMap, subjiToInSchedule, s1));
+
+
+    }
+
+    public List<TransportationNew> getDataList(){
+        return dataList;
     }
 
 }

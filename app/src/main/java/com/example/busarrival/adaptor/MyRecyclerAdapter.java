@@ -19,6 +19,15 @@ import java.util.List;
 public class MyRecyclerAdapter extends  RecyclerView.Adapter<MyRecyclerAdapter.ViewHolder>{
     private final List<TransportationNew> mDataList;
     private final List<ViewHolder> holderList;
+    private MyRecyclerViewClickListener mListener;
+
+    public interface MyRecyclerViewClickListener{
+        void onItemClicked(int position);
+    }
+
+    public void setOnClickListener(MyRecyclerViewClickListener listener){
+        mListener = listener;
+    }
 
     public MyRecyclerAdapter(List<TransportationNew> dataList) {
         mDataList = dataList;
@@ -34,8 +43,20 @@ public class MyRecyclerAdapter extends  RecyclerView.Adapter<MyRecyclerAdapter.V
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
+        final int position = i;
         TransportationNew.calendar = Calendar.getInstance();
-        viewHolder.setData(mDataList.get(i));
+        viewHolder.setData(mDataList.get(position));
+        if(mListener != null){
+            viewHolder.itemView.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v) {
+                    mListener.onItemClicked(position);
+                }
+            });
+
+        }
+
+
 
     }
 
@@ -43,8 +64,6 @@ public class MyRecyclerAdapter extends  RecyclerView.Adapter<MyRecyclerAdapter.V
     public int getItemCount() {
         return mDataList.size();
     }
-
-
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
         TextView textViewDepartText, textViewArriveText, textViewFirstBusArriveText,

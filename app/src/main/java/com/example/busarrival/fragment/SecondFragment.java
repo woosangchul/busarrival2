@@ -15,16 +15,23 @@ import com.example.busarrival.ver2.R;
  */
 public class SecondFragment extends android.support.v4.app.Fragment {
 
-
     public SecondFragment() {
         // Required empty public constructor
     }
 
+    public static SecondFragment newInstance(int position){
+        SecondFragment fragment = new SecondFragment();
+        Bundle args = new Bundle();
+        args.putInt("Position", position);
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.fragment_second, container, false);
     }
 

@@ -25,13 +25,12 @@
             android:id="@+id/textviewBackground"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@drawable/mornigsalad"
+            android:background="@drawable/healthwater"
             android:gravity="center_vertical|center_horizontal"
             android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="@id/textViewArrive"
             app:layout_constraintHeight_percent="0.05"
             app:layout_constraintStart_toStartOf="@id/textViewDepart"
-
             app:layout_constraintTop_toBottomOf="@id/textViewDepart" />
 
         <TextView
@@ -65,7 +64,6 @@
             android:text="지행"
             android:textSize="20dp"
             app:layout_constraintHeight_percent="0.2"
-
             app:layout_constraintStart_toEndOf="@+id/imageviewArrow" />
 
         <ImageView
@@ -73,7 +71,6 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:cropToPadding="false"
-
             android:scaleType="fitCenter"
             android:src="@drawable/school_bus"
             app:layout_constraintHeight_percent="0.25"
@@ -102,7 +99,6 @@
             android:layout_height="0dp"
             android:cropToPadding="false"
             android:scaleType="fitCenter"
-
             android:src="@drawable/school_bus"
             app:layout_constraintHeight_percent="0.25"
             app:layout_constraintLeft_toRightOf="@+id/textViewFirstBusText"
