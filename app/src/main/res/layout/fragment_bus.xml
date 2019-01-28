@@ -17,11 +17,11 @@
             android:layout_height="0dp"
             android:layout_marginRight="8dp"
             app:layout_constraintHeight_percent="0.095"
-            app:layout_constraintRight_toLeftOf="@+id/textViewDepart"
+            app:layout_constraintRight_toLeftOf="@+id/textViewDepartFrag2"
             app:srcCompat="@drawable/school_bus" />
 
         <TextView
-            android:id="@+id/textViewDepart"
+            android:id="@+id/textViewDepartFrag2"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:gravity="center_vertical|center_horizontal"
@@ -41,7 +41,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent="0.075"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewDepart" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewDepartFrag2" />
 
         <TextView
             android:id="@+id/textView4"

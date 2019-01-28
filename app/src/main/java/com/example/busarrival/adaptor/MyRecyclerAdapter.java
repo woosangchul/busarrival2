@@ -37,7 +37,7 @@ public class MyRecyclerAdapter extends  RecyclerView.Adapter<MyRecyclerAdapter.V
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_card, viewGroup, false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_card1, viewGroup, false);
         return new ViewHolder(view);
     }
 
@@ -85,7 +85,8 @@ public class MyRecyclerAdapter extends  RecyclerView.Adapter<MyRecyclerAdapter.V
             this.itemlist = item;
 
             schduleText = itemlist.getSchedule();
-
+            textViewDepartText.setText(item.getDepartText());
+            textViewArriveText.setText(item.getArriveText());
             textViewFirstBusArriveText.setText(schduleText.getBusTimeFirstTypeMiute());
             textViewNextBusArriveText.setText(schduleText.getBusTimeNextTypeMiute());
             textViewFirstSubArriveText.setText(schduleText.getSubTimeFirstTypeMiute());

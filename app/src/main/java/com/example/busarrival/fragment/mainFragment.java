@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import com.example.busarrival.Listener.FragmentSelectedListener;
 import com.example.busarrival.adaptor.MyRecyclerAdapter;
 import com.example.busarrival.domain.TransportationNew;
 import com.example.busarrival.ver2.MainActivity;
@@ -24,21 +25,28 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class mainFragment extends Fragment {
-    private OnMainFragmentSelectedListener mListener;
+public class mainFragment extends Fragment implements MyRecyclerAdapter.MyRecyclerViewClickListener{
+    private FragmentSelectedListener mListener;
     RecyclerView myRecycler;
     MyRecyclerAdapter adapter;
 
-    interface OnMainFragmentSelectedListener{
-        void onMainFragmentSelected();
-    }
 
-    public void setOnMainFragmentSeletedListener(OnMainFragmentSelectedListener listener){
+
+
+
+
+    @Override
+    public void onItemClicked(int position) {
+        if(mListener != null){
+            mListener.onMainFragmentSelected(position);
+        }
+    }
+    public void setOnMainFragmentSeletedListener(FragmentSelectedListener listener){
         mListener = listener;
     }
 
 
-    LinearLayout layout;
+
     public mainFragment() {
         // Required empty public constructor
     }
@@ -54,7 +62,7 @@ public class mainFragment extends Fragment {
         myRecycler.setLayoutManager(layoutManager); //수정
         adapter = new MyRecyclerAdapter(((MainActivity)getActivity()).getDataList());
         myRecycler.setAdapter(adapter);
-
+        adapter.setOnClickListener(this);
         //==================================== "필요없는부분 테스트완료"================================================
         /*
         layout = (LinearLayout)view.findViewById(R.id.linearLayoutMainLayout);

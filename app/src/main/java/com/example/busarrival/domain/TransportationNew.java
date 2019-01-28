@@ -25,6 +25,15 @@ public class TransportationNew extends TimeCalculator{
         this.arriveText = text[1]; //카드뷰에 표시할 도착지 이름
     }
 
+    public TransportationNew(TimeTableVO timetable) {
+        this.busMap = timetable.getScheduleBusMap();
+        this.subMap = timetable.getScheduleSubMap();
+        this.busSchedule = timetable.getScheduleBusList();
+        this.subSchedule = timetable.getScheduleSubList();
+        this.departText = timetable.getDepartText(); //카드뷰에 표시할 출발지 이름(2캠 >> 지행)
+        this.arriveText = timetable.getArriveText(); //카드뷰에 표시할 도착지 이름
+    }
+
     public String getDepartText() {
         return departText;
     }
@@ -100,9 +109,11 @@ public class TransportationNew extends TimeCalculator{
 
             if(tempBusFlag == busSchedule.size()-1){
                 str[1] = "다음차 종료";
-            }else
+                scheduleText.setBusTimeNextType("다음차 종료", "다음차 종료");
+            }else{
                 str[1] = timeCalc(busSchedule.get(tempBusFlag+1)) + "(" + busSchedule.get(tempBusFlag+1) + ")";
                 scheduleText.setBusTimeNextType(timeCalc(busSchedule.get(tempBusFlag+1)), busSchedule.get(tempBusFlag+1));
+            }
         }else{
             scheduleText.setStatus(tempBusFlag);
             scheduleText.setBusTimeFirstType("운행종료", "운행종료" );
@@ -211,6 +222,81 @@ public class TransportationNew extends TimeCalculator{
     }
 
 
+    //===========================================================   밑에 메소드 2개는 위에 메소드 리턴타입변경해서 만든 함수들 테스트 중인관계로 테스트완료되면 위에 함수 2개 지울예정
+    public ScheduleVO getNextButton(ScheduleVO scheduleVO){
+        // int busFlag=0;
+        // int subFlag=0;
+
+        ScheduleVO scheduleText = new ScheduleVO();
+
+        if(busFlag != -1){
+            if(!timeCompare(busSchedule.get(busFlag)))
+                busFlag = -1;
+        }
+
+        if(busFlag == -1){
+            busFlag = getScheduleIndex(busMap, busSchedule);
+        }
+
+        if(busFlag < busSchedule.size()-1 && busFlag != -1){
+            busFlag++;
+        }
+
+        if(busFlag == -1){
+            scheduleText.setStatus(busFlag);
+            return scheduleVO;
+        }else {
+            subFlag = getSubFlag(busFlag);
+            scheduleText.setStatus(busFlag);
+            scheduleText.setBusTimeFirstType(timeCalc(busSchedule.get(busFlag)),busSchedule.get(busFlag) );
+            scheduleText.setSubTimeFirstType(timeCalc(subSchedule.get(subFlag)), subSchedule.get(subFlag));
+            scheduleText.setSubTimeNextType(timeCalc(subSchedule.get(subFlag+1)), subSchedule.get(subFlag+1));
+
+            if (busFlag < busSchedule.size() - 1) {
+                scheduleText.setBusTimeNextType(timeCalc(busSchedule.get(busFlag+1)), busSchedule.get(busFlag+1));
+
+            }else if(busFlag == busSchedule.size()-1)
+               scheduleText.setBusTimeNextType("운행종료","운행종료");
+        }
+
+        return scheduleText;
+
+    }
+
+    public ScheduleVO getPrevButton(ScheduleVO scheduleVO){
+
+        ScheduleVO scheduleText = new ScheduleVO();
+        if(busFlag != -1){
+            if(!timeCompare(busSchedule.get(busFlag)))
+                busFlag = -1;
+        }
+
+        if(busFlag == -1){
+            busFlag = getScheduleIndex(busMap, busSchedule);
+        }
+
+        if(busFlag != -1 && busFlag != 0){
+            if(timeCompare(busSchedule.get(busFlag-1))){
+                busFlag--;
+            }
+        }
+        if(busFlag == -1){
+            scheduleText.setStatus(busFlag);
+            return  scheduleVO;
+        }else{
+            subFlag = getSubFlag(busFlag);
+            scheduleText.setBusTimeFirstType(timeCalc(busSchedule.get(busFlag)),busSchedule.get(busFlag) );
+            scheduleText.setSubTimeFirstType(timeCalc(subSchedule.get(subFlag)), subSchedule.get(subFlag));
+            scheduleText.setSubTimeNextType(timeCalc(subSchedule.get(subFlag+1)), subSchedule.get(subFlag+1));
+
+            if (busFlag == busSchedule.size() - 1) {
+                scheduleText.setBusTimeNextType("운행종료","운행종료");
+            }else{
+                scheduleText.setBusTimeNextType(timeCalc(busSchedule.get(busFlag+1)), busSchedule.get(busFlag+1));
+            }
+        }
+        return scheduleText;
+    }
 
 
 }

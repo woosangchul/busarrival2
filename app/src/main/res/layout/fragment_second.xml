@@ -35,14 +35,14 @@
                     android:cropToPadding="false"
                     android:scaleType="fitCenter"
                     android:src="@drawable/left_arrow"
-                    app:layout_constraintBottom_toBottomOf="@+id/textViewDepart"
+                    app:layout_constraintBottom_toBottomOf="@+id/textViewDepartFrag2"
                     app:layout_constraintHeight_percent="0.1"
                     app:layout_constraintStart_toStartOf="@id/guidelinestart"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintWidth_percent="0.06" />
 
                 <TextView
-                    android:id="@+id/textViewDepart"
+                    android:id="@+id/textViewDepartFrag2"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:gravity="center_vertical|center_horizontal"
@@ -64,7 +64,7 @@
                     android:src="@drawable/right_arrow"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/guidelineend"
-                    app:layout_constraintBottom_toBottomOf="@+id/textViewDepart"
+                    app:layout_constraintBottom_toBottomOf="@+id/textViewDepartFrag2"
                     app:layout_constraintHeight_percent="0.1"
                     app:layout_constraintWidth_percent="0.06" />
 
@@ -77,8 +77,8 @@
                     android:textSize="20dp"
                     app:layout_constraintEnd_toEndOf="@id/textViewArrive"
                     app:layout_constraintHeight_percent="0.01"
-                    app:layout_constraintStart_toStartOf="@id/textViewDepart"
-                    app:layout_constraintTop_toBottomOf="@id/textViewDepart" />
+                    app:layout_constraintStart_toStartOf="@id/textViewDepartFrag2"
+                    app:layout_constraintTop_toBottomOf="@id/textViewDepartFrag2" />
 
 
                 <ImageView
@@ -99,14 +99,25 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:textSize="16dp"
                     android:text="Bus"
-                    app:layout_constraintBottom_toTopOf="@+id/textViewFirstBusText"
+                    android:textSize="16dp"
+                    app:layout_constraintBottom_toTopOf="@+id/textViewFirstBusTextFrag2"
                     app:layout_constraintStart_toEndOf="@+id/imageviewBus"
                     app:layout_constraintTop_toBottomOf="@+id/textviewBackground" />
 
+                <Button
+                    android:id="@+id/buttonSchedule"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:background="#00ffffff"
+                    android:text="Schedule"
+                    app:layout_constraintBottom_toTopOf="@+id/textViewFirstBusTextFrag2"
+                    app:layout_constraintEnd_toStartOf="@+id/guidelineend"
+                    app:layout_constraintHeight_percent="0.12"
+                    app:layout_constraintTop_toBottomOf="@+id/textviewBackground" />
+
                 <TextView
-                    android:id="@+id/textViewFirstBusText"
+                    android:id="@+id/textViewFirstBusTextFrag2"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:gravity="left|center_vertical"
@@ -121,7 +132,7 @@
 
 
                 <TextView
-                    android:id="@+id/textviewtext2"
+                    android:id="@+id/textViewNextBusTextFrag2"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:gravity="right|center_vertical"
@@ -129,7 +140,7 @@
                     android:text="08:30"
                     android:textSize="24dp"
                     app:layout_constraintHeight_percent="0.28"
-                    app:layout_constraintLeft_toRightOf="@+id/textViewFirstBusText"
+                    app:layout_constraintStart_toEndOf="@+id/textViewFirstBusTextFrag2"
                     app:layout_constraintTop_toBottomOf="@+id/imageviewBus"
                     app:layout_constraintWidth_percent="0.48" />
 
@@ -141,22 +152,22 @@
                     android:src="@drawable/metro"
                     app:layout_constraintHeight_percent="0.12"
                     app:layout_constraintLeft_toLeftOf="@+id/guidelinestart"
-                    app:layout_constraintTop_toBottomOf="@+id/textViewFirstBusText"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewFirstBusTextFrag2"
                     app:layout_constraintWidth_percent="0.06" />
 
                 <TextView
                     android:id="@+id/textView2"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="24dp"
                     android:layout_marginStart="8dp"
                     android:text="Subway"
                     android:textSize="16dp"
-                    app:layout_constraintBottom_toTopOf="@+id/textViewFirstSubText"
+                    app:layout_constraintBottom_toTopOf="@+id/textViewFirstSubTextFrag2"
                     app:layout_constraintStart_toEndOf="@+id/imageviewsubway"
-                    app:layout_constraintTop_toBottomOf="@+id/textViewFirstBusText" />
+                    app:layout_constraintTop_toBottomOf="@+id/textViewFirstBusTextFrag2" />
 
                 <TextView
-                    android:id="@+id/textViewFirstSubText"
+                    android:id="@+id/textViewFirstSubTextFrag2"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:gravity="left|center_vertical"
@@ -169,14 +180,14 @@
                     app:layout_constraintWidth_percent="0.48" />
 
                 <TextView
-                    android:id="@+id/textviewtext4"
+                    android:id="@+id/textViewNextSubTextFrag2"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:gravity="right|center_vertical"
                     android:text="09:15"
                     android:textSize="24dp"
                     app:layout_constraintHeight_percent="0.28"
-                    app:layout_constraintLeft_toRightOf="@+id/textViewFirstSubText"
+                    app:layout_constraintLeft_toRightOf="@+id/textViewFirstSubTextFrag2"
                     app:layout_constraintTop_toBottomOf="@+id/imageviewsubway"
                     app:layout_constraintWidth_percent="0.48" />
 
@@ -231,19 +242,7 @@
                     app:layout_constraintWidth_percent="0.06" />
 
 
-                <android.support.constraint.Guideline
-                    android:id="@+id/guidelinestart"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    app:layout_constraintGuide_percent="0.02" />
 
-                <android.support.constraint.Guideline
-                    android:id="@+id/guidelineend"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    app:layout_constraintGuide_percent="0.98" />
 
             </android.support.constraint.ConstraintLayout>
 

@@ -2,6 +2,7 @@ package com.example.busarrival.domain;
 
 public class ScheduleVO {
     private int status=-1;
+
     private String busTimeFirstTypeMiute; //현재시간 16:00 버스출발시간 16:10일 경우 "10분후 도착" 저장
     private String busTimeNextTypeMiute;
     private String subTimeFirstTypeMiute;

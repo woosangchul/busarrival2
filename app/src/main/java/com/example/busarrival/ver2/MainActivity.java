@@ -7,9 +7,13 @@ import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
+import com.example.busarrival.Listener.FragmentSelectedListenerImpl;
 import com.example.busarrival.adaptor.MyRecyclerAdapter;
+import com.example.busarrival.domain.ScheduleVO;
+import com.example.busarrival.domain.TimeTableVO;
 import com.example.busarrival.domain.TransportationNew;
 import com.example.busarrival.fragment.SecondFragment;
+import com.example.busarrival.fragment.ThirdFragment;
 import com.example.busarrival.fragment.mainFragment;
 
 import java.util.ArrayList;
@@ -18,8 +22,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MainActivity extends AppCompatActivity implements MyRecyclerAdapter.MyRecyclerViewClickListener {
+public class MainActivity extends AppCompatActivity  implements FragmentSelectedListenerImpl.FragmentListener{
+    private mainFragment mMainFragment;
     private SecondFragment mSecondFragment;
+    private ThirdFragment mThirdFragment;
 
     private RecyclerView recyclerView;
     private TransportationNew bus2camToJi, busjiTo2Cam;
@@ -32,22 +38,43 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerAdapter
 
     private List<TransportationNew> dataList;
 
+    FragmentSelectedListenerImpl fragmentSelectedListener;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initTransportation();
-        mainFragment fragment = new mainFragment();
-
-        getSupportFragmentManager().beginTransaction().add(R.id.fragment_container,fragment).commit();
-
-//        fragment.setOnMainFragmentSeletedListener(this);
+        mMainFragment = new mainFragment();
+       // ThirdFragment fragment = new ThirdFragment();
+        getSupportFragmentManager().beginTransaction().add(R.id.fragment_container,mMainFragment).commit();
+        fragmentSelectedListener = new FragmentSelectedListenerImpl();
+        mMainFragment.setOnMainFragmentSeletedListener(fragmentSelectedListener);
+        fragmentSelectedListener.setOnFragmentLister(this);
 
     }
 
-    @Override
-    public void onItemClicked(int position) {
 
+
+    @Override
+    public void selectedFragment(int i, int position) {
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+
+        switch (i){
+            case 1:
+                mSecondFragment = SecondFragment.newInstance(position);
+                mSecondFragment.setOnSecondFragmentSelectedListener(fragmentSelectedListener);
+                ft.replace(R.id.fragment_container,mSecondFragment);
+                ft.addToBackStack("null");
+                ft.commit();
+                break;
+            case 2:
+                mThirdFragment = new ThirdFragment();
+                ft.replace(R.id.fragment_container,mThirdFragment);
+                ft.addToBackStack("null");
+                ft.commit();
+                break;
+        }
     }
 
     /*
@@ -92,6 +119,7 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerAdapter
         bus2camToJiSchedule = new ArrayList<>();
         subjiToInSchedule = new ArrayList<>();
         busJito2camSchedule = new ArrayList<>();
+        TimeTableVO timeTableVO = new TimeTableVO();
 
         String[] busTimeTable2camToJi = {"08:10",	"08:25",	"08:35",	"08:45",	"09:00",	"09:25",	"09:30",	"09:40",	"10:00",	"10:20",	"10:35",	"10:55",	"11:30",	"12:00",	"12:30",	"13:00",
                 "13:30",	"14:00",	"14:30",	"14:55",	"15:00",	"15:25",	"15:30",	"15:55",	"16:25",	"16:50",	"17:00",	"17:15",	"17:30",	"17:40",	"17:55",	"18:10",	"18:30",
@@ -133,16 +161,16 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerAdapter
 
         String s[] = {"2캠", "지행"};
         String s1[] = {"지행", "2캠"};
+
         dataList = new ArrayList<>();
-        dataList.add( new TransportationNew(bus2camToJiMap, bus2camToJiSchedule, subjiToInMap, subjiToInSchedule, s));
-        dataList.add(new TransportationNew(busJiTo2camMap, busJito2camSchedule, subjiToInMap, subjiToInSchedule, s1));
-        dataList.add(new TransportationNew(busJiTo2camMap, busJito2camSchedule, subjiToInMap, subjiToInSchedule, s1));
-        dataList.add(new TransportationNew(busJiTo2camMap, busJito2camSchedule, subjiToInMap, subjiToInSchedule, s1));
-        dataList.add(new TransportationNew(busJiTo2camMap, busJito2camSchedule, subjiToInMap, subjiToInSchedule, s1));
-        dataList.add(new TransportationNew(busJiTo2camMap, busJito2camSchedule, subjiToInMap, subjiToInSchedule, s1));
-        dataList.add(new TransportationNew(busJiTo2camMap, busJito2camSchedule, subjiToInMap, subjiToInSchedule, s1));
-        dataList.add(new TransportationNew(busJiTo2camMap, busJito2camSchedule, subjiToInMap, subjiToInSchedule, s1));
-        dataList.add(new TransportationNew(busJiTo2camMap, busJito2camSchedule, subjiToInMap, subjiToInSchedule, s1));
+        dataList.add(new TransportationNew(new TimeTableVO("2캠", "지행",bus2camToJiMap, bus2camToJiSchedule, subjiToInMap, subjiToInSchedule)));
+        dataList.add(new TransportationNew(new TimeTableVO("3캠", "지행",busJiTo2camMap, busJito2camSchedule, subjiToInMap, subjiToInSchedule)));
+        dataList.add(new TransportationNew(new TimeTableVO("4캠", "지행",bus2camToJiMap, bus2camToJiSchedule, subjiToInMap, subjiToInSchedule)));
+        dataList.add(new TransportationNew(new TimeTableVO("5캠", "지행",busJiTo2camMap, busJito2camSchedule, subjiToInMap, subjiToInSchedule)));
+        dataList.add(new TransportationNew(new TimeTableVO("6캠", "지행",bus2camToJiMap, bus2camToJiSchedule, subjiToInMap, subjiToInSchedule)));
+        dataList.add(new TransportationNew(new TimeTableVO("7캠", "지행",busJiTo2camMap, busJito2camSchedule, subjiToInMap, subjiToInSchedule)));
+        dataList.add(new TransportationNew(new TimeTableVO("8캠", "지행",bus2camToJiMap, bus2camToJiSchedule, subjiToInMap, subjiToInSchedule)));
+        dataList.add(new TransportationNew(new TimeTableVO("9캠", "지행",busJiTo2camMap, busJito2camSchedule, subjiToInMap, subjiToInSchedule)));
 
 
     }
@@ -151,4 +179,7 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerAdapter
         return dataList;
     }
 
+    public TransportationNew getDataList(int position){
+        return dataList.get(position);
+    }
 }
