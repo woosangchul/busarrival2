@@ -2,6 +2,7 @@ package com.example.busarrival.adaptor;
 
 
 import android.support.annotation.NonNull;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,7 +38,7 @@ public class MyRecyclerAdapter extends  RecyclerView.Adapter<MyRecyclerAdapter.V
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_card1, viewGroup, false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_card4, viewGroup, false);
         return new ViewHolder(view);
     }
 
@@ -67,8 +68,10 @@ public class MyRecyclerAdapter extends  RecyclerView.Adapter<MyRecyclerAdapter.V
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
         TextView textViewDepartText, textViewArriveText, textViewFirstBusArriveText,
-                textViewNextBusArriveText, textViewFirstSubArriveText, textViewNextSubArriveText;
+                textViewNextBusArriveText, textViewFirstSubUpArriveText, textViewNextSubUpArriveText;
         TransportationNew itemlist;
+
+        CardView cardView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -76,8 +79,10 @@ public class MyRecyclerAdapter extends  RecyclerView.Adapter<MyRecyclerAdapter.V
             textViewArriveText = itemView.findViewById(R.id.textViewArrive); //도착지 텍스트뷰
             textViewFirstBusArriveText = itemView.findViewById(R.id.textViewFirstBusText); //지금 도착할 버스시간
             textViewNextBusArriveText = itemView.findViewById(R.id.textViewNextBusText); // 다음 도착
-            textViewFirstSubArriveText = itemView.findViewById(R.id.textViewFirstSubText); // 지금 지하철
-            textViewNextSubArriveText = itemView.findViewById(R.id.textViewNextSubText); // 다음 도착 지하철
+            textViewFirstSubUpArriveText = itemView.findViewById(R.id.textViewFirstSubUpText); // 지금 지하철
+            textViewNextSubUpArriveText = itemView.findViewById(R.id.textViewNextSubUpText); // 다음 도착 지하철
+            cardView = itemView.findViewById(R.id.cardView);
+            cardView.bringToFront();
         }
 
         public void setData(TransportationNew item){
@@ -87,10 +92,10 @@ public class MyRecyclerAdapter extends  RecyclerView.Adapter<MyRecyclerAdapter.V
             schduleText = itemlist.getSchedule();
             textViewDepartText.setText(item.getDepartText());
             textViewArriveText.setText(item.getArriveText());
-            textViewFirstBusArriveText.setText(schduleText.getBusTimeFirstTypeMiute());
-            textViewNextBusArriveText.setText(schduleText.getBusTimeNextTypeMiute());
-            textViewFirstSubArriveText.setText(schduleText.getSubTimeFirstTypeMiute());
-            textViewNextSubArriveText.setText(schduleText.getSubTimeNextTypeMiute());
+            textViewFirstBusArriveText.setText(schduleText.getBusTimeFirstTypeTime());
+            textViewNextBusArriveText.setText(schduleText.getBusTimeNextTypeTime());
+            textViewFirstSubUpArriveText.setText(schduleText.getSubTimeFirstTypeTime());
+            textViewNextSubUpArriveText.setText(schduleText.getSubTimeNextTypeTime());
 
         }
     }
