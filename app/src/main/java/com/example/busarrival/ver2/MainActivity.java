@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity  implements FragmentSelected
     private TransportationNew bus2camToJi, busjiTo2Cam;
 
     private Map<Integer, Integer> bus2camToJiMap, busJiTo2camMap;
-    private ArrayList<String> bus2camToJiSchedule, busJito2camSchedule;
+    public ArrayList<String> bus2camToJiSchedule, busJito2camSchedule;
 
     private Map<Integer, Integer> subjiToInMap;
     private ArrayList<String> subjiToInSchedule;

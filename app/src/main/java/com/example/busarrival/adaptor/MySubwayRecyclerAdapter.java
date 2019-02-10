@@ -10,9 +10,15 @@ import android.widget.TextView;
 
 import com.example.busarrival.ver2.R;
 
+import java.util.ArrayList;
+
 public class MySubwayRecyclerAdapter extends RecyclerView.Adapter<MySubwayRecyclerAdapter.ViewHolder>{
     RecyclerView myRecycler;
-    
+    private ArrayList<String> schedule;
+
+    public MySubwayRecyclerAdapter(ArrayList<String> schedule) {
+        this.schedule = schedule;
+    }
 
     @NonNull
     @Override
@@ -23,12 +29,12 @@ public class MySubwayRecyclerAdapter extends RecyclerView.Adapter<MySubwayRecycl
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-
+        viewHolder.textView.setText(schedule.get(i));
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return schedule.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
