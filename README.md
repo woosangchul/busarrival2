@@ -1,8 +1,10 @@
 # 안드로이드 셔틀버스 프로젝트
 
 
-
+<div align=center>
+  
 ![img](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/476f3682-845b-4076-b799-70a42d4ae3bc/Untitled.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210907%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210907T015051Z&X-Amz-Expires=86400&X-Amz-Signature=52d0ab0d8b554b2f83b9addb4d7e17f6339858ed634c5840ec6f2dad36de6284&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.gif%22)
+</div>
 
 ## **개발환경**
 
