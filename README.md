@@ -3,8 +3,10 @@
 
 <div align=center>
   
-![img](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/476f3682-845b-4076-b799-70a42d4ae3bc/Untitled.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210907%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210907T015051Z&X-Amz-Expires=86400&X-Amz-Signature=52d0ab0d8b554b2f83b9addb4d7e17f6339858ed634c5840ec6f2dad36de6284&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.gif%22)
+![img](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/476f3682-845b-4076-b799-70a42d4ae3bc/Untitled.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210910%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210910T022457Z&X-Amz-Expires=86400&X-Amz-Signature=2af163b9c43e33107f631228247e70a4cbb478628978b9921697d46e6445e574&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.gif%22)
 </div>
+
+
 
 ## **개발환경**
 
@@ -31,7 +33,7 @@
 
 **UI 구조도**
 
-![img](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/23a47f13-82c3-4047-8b26-fa7a03c83ad1/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210906%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210906T153657Z&X-Amz-Expires=86400&X-Amz-Signature=cc25ec6b742a44b804bf2bfec67bca0c76f88c2b4eff61de7a50a25050e5e55f&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22)
+![img](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/23a47f13-82c3-4047-8b26-fa7a03c83ad1/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210910%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210910T022640Z&X-Amz-Expires=86400&X-Amz-Signature=ab63fd62e08ed579f7c66ee16d0cf5d2486e806d79b72b2f9e19daa528782bc3&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22)
 
 
 
