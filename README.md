@@ -3,7 +3,7 @@
 
 <div align=center>
   
-![img](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/476f3682-845b-4076-b799-70a42d4ae3bc/Untitled.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210910%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210910T022457Z&X-Amz-Expires=86400&X-Amz-Signature=2af163b9c43e33107f631228247e70a4cbb478628978b9921697d46e6445e574&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.gif%22)
+![img](https://user-images.githubusercontent.com/40749537/138593884-342646ea-cdc2-454b-a411-5f6b6ddfbe60.gif)
 </div>
 
 
