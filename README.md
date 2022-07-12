@@ -33,7 +33,7 @@
 
 **UI 구조도**
 
-![img](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/23a47f13-82c3-4047-8b26-fa7a03c83ad1/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210910%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210910T022640Z&X-Amz-Expires=86400&X-Amz-Signature=ab63fd62e08ed579f7c66ee16d0cf5d2486e806d79b72b2f9e19daa528782bc3&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22)
+![img](https://user-images.githubusercontent.com/40749537/178414965-69cdd00a-0fe8-467c-a9e9-262cea154a02.png)
 
 
 
